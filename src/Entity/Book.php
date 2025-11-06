@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\BookRepository;
+use App\Validator\CurrentYear;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -28,6 +29,14 @@ class Book
      * @ORM\Column(type="integer")
      * @Assert\NotBlank(message="El año de publicación es requerido")
      * @Assert\Positive(message="El año debe ser un número positivo")
+     * @Assert\Range(
+     *      min=1000,
+     *      max=2100,
+     *      notInRangeMessage="El año debe estar entre {{ min }} y {{ max }}",
+     *      minMessage="El año debe tener al menos 4 dígitos (mínimo {{ limit }})",
+     *      maxMessage="El año es demasiado grande"
+     * )
+     * @CurrentYear
      */
     private $publicationYear;
 

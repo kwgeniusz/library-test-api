@@ -46,6 +46,51 @@ class AuthorController extends AbstractController
     }
 
     /**
+     * @Route("/nationalities", name="nationalities", methods={"GET"})
+     */
+    public function getNationalities(): JsonResponse
+    {
+        $nationalities = [
+            'Argentino',
+            'Boliviano',
+            'Brasileño',
+            'Chileno',
+            'Colombiano',
+            'Costarricense',
+            'Cubano',
+            'Dominicano',
+            'Ecuatoriano',
+            'Español',
+            'Guatemalteco',
+            'Hondureño',
+            'Mexicano',
+            'Nicaragüense',
+            'Panameño',
+            'Paraguayo',
+            'Peruano',
+            'Puertorriqueño',
+            'Salvadoreño',
+            'Uruguayo',
+            'Venezolano',
+            'Estadounidense',
+            'Canadiense',
+            'Británico',
+            'Francés',
+            'Alemán',
+            'Italiano',
+            'Portugués',
+            'Japonés',
+            'Chino',
+            'Coreano',
+            'Indio',
+            'Ruso',
+            'Otro'
+        ];
+
+        return $this->json($nationalities);
+    }
+
+    /**
      * @Route("/{id}", name="show", methods={"GET"})
      */
     public function show(int $id, AuthorRepository $authorRepository): JsonResponse
